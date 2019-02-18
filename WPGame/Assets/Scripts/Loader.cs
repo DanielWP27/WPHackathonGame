@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loader : MonoBehaviour
 {
-
+    
     public GameObject gameManager;
     public GameObject soundManager;
 
