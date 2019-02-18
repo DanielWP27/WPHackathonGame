@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4650036796950903528}
   - component: {fileID: 2163923425929333599}
   - component: {fileID: 785010802280294260}
+  - component: {fileID: 6008687582645037333}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -150,3 +151,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0.009970151, y: -0.3195362}
   m_Size: {x: 0.8999438, y: 0.5609318}
   m_Direction: 1
+--- !u!95 &6008687582645037333
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2664203551269418001}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69e9bcc4c2dc64fab876f0977cc66d12, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

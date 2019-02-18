@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //private Animator animator
+    private Animator animator;
     public string xAxis;
     public string yAxis;
     Rigidbody2D player;
     SpriteRenderer playerRend;
     public static float speed = 5;
     private int playerDirection;
-    //private Sprite[] sprites;
+    private Sprite[] sprites;
 
     // Use this for initialization
     void Start()
@@ -19,11 +19,11 @@ public class PlayerController : MonoBehaviour
 
         player = GetComponent<Rigidbody2D>();
         playerRend = GetComponent<SpriteRenderer>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         playerRend.flipX = false;
   
         playerDirection = 0;
-        //sprites = Resources.LoadAll<Sprite>("Sprites");
+        sprites = Resources.LoadAll<Sprite>("Sprites");
 
     }
 
@@ -50,13 +50,13 @@ public class PlayerController : MonoBehaviour
             if (player.velocity.x > 0)
             {
                 playerDirection = 0;
-                //animator.SetInteger("Direction", 3);
+                animator.SetInteger("Direction", 3);
                 //playerRend.sprite = Resources.Load<Sprite>("Sprites/RagerRight");
             }
             else if (player.velocity.x < 0)
             {
                 playerDirection = 1;
-                //animator.SetInteger("Direction", 1);
+                animator.SetInteger("Direction", 1);
                 //playerRend.sprite = Resources.Load<Sprite>("Sprites/RagerLeft");
             }
         }
@@ -65,13 +65,13 @@ public class PlayerController : MonoBehaviour
             if (player.velocity.y > 0)
             {
                 playerDirection = 2;
-                //animator.SetInteger("Direction", 2);
+                animator.SetInteger("Direction", 2);
                 //playerRend.sprite = Resources.Load<Sprite>("Sprites/RagerBack");
             }
             else if (player.velocity.y < 0)
             {
                 playerDirection = 3;
-                //animator.SetInteger("Direction", 0);
+                animator.SetInteger("Direction", 0);
                 //playerRend.sprite = Resources.Load<Sprite>("Sprites/Rager");
             }
         }
