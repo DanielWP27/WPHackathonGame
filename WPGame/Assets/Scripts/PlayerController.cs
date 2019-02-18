@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{ 
+{
     //private Animator animator
+    public string xAxis;
+    public string yAxis;
     Rigidbody2D player;
     SpriteRenderer playerRend;
     public static float speed = 5;
@@ -29,8 +31,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float x = Input.GetAxis(xAxis);
+        float y = Input.GetAxis(yAxis);
 
         player.velocity = new Vector2(x * speed, y * speed);
 
