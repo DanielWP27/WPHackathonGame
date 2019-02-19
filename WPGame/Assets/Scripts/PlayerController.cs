@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D player;
     public static float speed = 5;
     private int playerDirection;
+    GameObject[] computers;
 
     // Use this for initialization
     void Start()
@@ -18,12 +19,23 @@ public class PlayerController : MonoBehaviour
         player = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerDirection = 0;
+        computers = GameObject.FindGameObjectsWithTag("Computer");
 
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        Vector3 position = transform.position;
+        foreach(GameObject pc in computers)
+        {
+            float diff = Vector3.Distance(pc.transform.position, position);
+            if(diff < 1)
+            {
+                print("CLOSE!");
+            }
+        }
 
         float x = Input.GetAxis(xAxis);
         float y = Input.GetAxis(yAxis);
