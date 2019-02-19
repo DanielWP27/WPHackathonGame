@@ -58,7 +58,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundOffice: {fileID: 571885260398383294, guid: 5ccce28f82ae34c1d9d7fc17d207e5a7,
     type: 3}
+  computer: {fileID: 5672170516929561158, guid: bb2165ec2907c49dfbaab9b1841791bf,
+    type: 3}
   player1: {fileID: 2132802571, guid: 227c71cdf33184a019f3b431a6b7575c, type: 3}
   player2: {fileID: 2664203551269418001, guid: 301fb200bbfd4441987dbfbfc2d24b3a, type: 3}
-  computer: {fileID: 5672170516929561158, guid: bb2165ec2907c49dfbaab9b1841791bf,
+  exclamation: {fileID: 924445361555630333, guid: 0300acaffdfb141658b5b90cbb1d64bc,
     type: 3}
