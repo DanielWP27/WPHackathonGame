@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public static float speed = 5;
     private int playerDirection;
     GameObject[] computers;
+    GameObject[] exclamations;
 
     // Use this for initialization
     void Start()
@@ -27,13 +28,22 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
+        exclamations = GameObject.FindGameObjectsWithTag("Exclamation");
+
         Vector3 position = transform.position;
-        foreach(GameObject pc in computers)
+        foreach(GameObject exc in exclamations)
         {
-            float diff = Vector3.Distance(pc.transform.position, position);
-            if(diff < 1)
-            {
-                print("CLOSE!");
+            foreach (GameObject pc in computers)
+            { 
+                float diff = Vector3.Distance(pc.transform.position, position);
+                float exc_dist = Vector3.Distance(exc.transform.position, position);
+                if (diff < 1 && exc_dist < 3)
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        print("SELECTED!");
+                    }
+                }
             }
         }
 

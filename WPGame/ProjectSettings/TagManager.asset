@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Computer
+  - Exclamation
   layers:
   - Default
   - TransparentFX
@@ -40,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3487657935
+    locked: 0
+  - name: Floor
+    uniqueID: 1350539697
+    locked: 0
+  - name: Player
+    uniqueID: 1226514405
+    locked: 0
+  - name: Overlay
+    uniqueID: 1351814967
     locked: 0
