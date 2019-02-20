@@ -103,4 +103,11 @@ public class LevelManager : MonoBehaviour
             Instantiate((exclamation), new Vector2(x, y), Quaternion.Euler(0, 0, z));
         }
     }
+
+    public GameObject DestroyAndStoreExclamation(GameObject exc)
+    {
+        GameObject result = exc;
+        Destroy(exc);
+        return result;
+    }
 }

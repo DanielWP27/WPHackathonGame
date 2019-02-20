@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     private int playerDirection;
     GameObject[] computers;
     GameObject[] exclamations;
-
+    Task currentTask;
+    GameObject storedExc;
     // Use this for initialization
     void Start()
     {
@@ -27,21 +28,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
         exclamations = GameObject.FindGameObjectsWithTag("Exclamation");
-
         Vector3 position = transform.position;
-        foreach(GameObject exc in exclamations)
+        foreach (GameObject exc in exclamations)
         {
             foreach (GameObject pc in computers)
-            { 
+            {
                 float diff = Vector3.Distance(pc.transform.position, position);
                 float exc_dist = Vector3.Distance(exc.transform.position, position);
-                if (diff < 1 && exc_dist < 3)
+
+                if (diff < 1 && exc_dist < 3 && currentTask == null)
                 {
                     if (Input.GetKeyDown(KeyCode.Space))
                     {
                         print("SELECTED!");
+                        currentTask = CreateTask();
+                        storedExc = exc;
+                        exc.SetActive(false);
+                        break;
+                    }
+                }
+                else if(diff < 1 && exc_dist > 3 && currentTask != null)
+                {
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        GameObject placedExc = Instantiate((storedExc), player.transform.position, Quaternion.Euler(0, 0, 0));
+                        placedExc.SetActive(true);
+                        exclamations = GameObject.FindGameObjectsWithTag("Exclamation");
+                        currentTask = null;
                     }
                 }
             }
@@ -52,14 +66,6 @@ public class PlayerController : MonoBehaviour
 
         player.velocity = new Vector2(x * speed, y * speed);
 
-       /*if (Mathf.Abs(player.velocity.x) > 0 || Mathf.Abs(player.velocity.y) > 0)
-        {
-            animator.SetBool("Walking", true);
-        }
-        else
-        {
-            animator.SetBool("Walking", false);
-        }*/
 
         if (Mathf.Abs(player.velocity.x) > Mathf.Abs(player.velocity.y))
         {
@@ -87,11 +93,18 @@ public class PlayerController : MonoBehaviour
                 animator.SetInteger("Direction", 0);
             }
         }
+    }
 
-
-       // if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown("joystick button 0"))
-
-
+    private Task CreateTask()
+    {
+        int taskAmount = Random.Range(0, 2);
+        bool[] subtasks = new bool[taskAmount+1];
+        for (int i = 0; i <= taskAmount; i++)
+        {
+            subtasks[i] = false;
+        }
+        Task task = new Task(subtasks);
+        return task;
     }
 
 }
